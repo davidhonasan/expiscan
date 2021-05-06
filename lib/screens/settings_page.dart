@@ -85,8 +85,8 @@ class _SettingsPageState extends State<SettingsPage> {
                         context: context,
                         applicationIcon: Icon(Icons.local_restaurant_rounded),
                         applicationLegalese:
-                            'Created by David \n Scanned product\'s name and image provided by Open Food Facts',
-                        applicationVersion: '1.0');
+                            'Created by David\nScanned product\'s name and image provided by Open Food Facts',
+                        applicationVersion: '1.0.1');
                   },
                 ),
               ],
