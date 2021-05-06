@@ -1,16 +1,3 @@
-# expiscan
+# Expiscan
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+An Android mobile application used for tracking food product's expiry date. This app uses OCR ([Firebase ML Kit][https://github.com/FirebaseExtended/flutterfire/tree/master/packages/firebase_ml_vision]) to recognize barcodes and expiry date texts. It also uses [Open Food Facts][https://github.com/openfoodfacts/openfoodfacts-dart] for the product's data (e.g. name and image)
