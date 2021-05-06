@@ -44,15 +44,13 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int _pageIndex = 0;
-  // bool _isFabClosed = true;
   int _filterPantryId = 0;
 
   final PageController controller = PageController(initialPage: 0);
 
-  // void _onFabChanged(bool value) {
-  //   _isFabClosed = value;
-  //   setState(() {});
-  // }
+  void _refresh() {
+    setState(() {});
+  }
 
   void _onPageChanged(int index) {
     _pageIndex = index;
@@ -188,16 +186,16 @@ class _HomeState extends State<Home> {
         ], currentIndex: _pageIndex, onTap: _onBottomNavbarChanged),
       ),
       SpeedDialFAB(
-          // onChanged: _onFabChanged,
-          )
+        refresh: _refresh,
+      )
     ]);
   }
 }
 
 class SpeedDialFAB extends StatefulWidget {
-  // final Function onChanged;
+  final Function refresh;
 
-  // SpeedDialFAB({required this.onChanged});
+  SpeedDialFAB({required this.refresh});
   @override
   _SpeedDialFABState createState() => _SpeedDialFABState();
 }
@@ -250,7 +248,7 @@ class _SpeedDialFABState extends State<SpeedDialFAB>
       MaterialPageRoute(builder: (context) => detailPage),
     );
 
-    // widget.onChanged(true);
+    widget.refresh();
   }
 
   @override

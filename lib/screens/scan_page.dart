@@ -215,7 +215,7 @@ class _ScanPageState extends State<ScanPage> with WidgetsBindingObserver {
             .stopImageStream()
             .then((_) => _showFoodConfirmationModal());
 
-        print('found ${barcode.displayValue}');
+        // print('found ${barcode.displayValue}');
         setState(() {
           _scannerStatus = 'Barcode scanned';
           _barcodeValue = barcode.displayValue;
@@ -256,7 +256,7 @@ class _ScanPageState extends State<ScanPage> with WidgetsBindingObserver {
         // print(line.text);
         // if (scannerBox.overlaps(line.boundingBox!)) {
         if (scannerBox.overlaps(line.boundingBox!)) {
-          print(visionText.text);
+          // print(visionText.text);
           if (_cameraController.value.isStreamingImages)
             await _cameraController.stopImageStream();
           // .then((_) => _showExpiryDateConfirmationModal());
