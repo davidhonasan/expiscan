@@ -57,7 +57,7 @@ class _ItemPageState extends State<ItemPage> {
         list: list,
         index: list.indexWhere((element) {
           if (element is Food) {
-            return element.expiryDate.isAfter(DateTime(2000)) &&
+            return element.expiryDate.isAfter(DateTime(1971)) &&
                 element.expiryDate.isBefore(today);
           }
           return false;
@@ -89,7 +89,8 @@ class _ItemPageState extends State<ItemPage> {
             return (element.expiryDate.isAfter(today.add(Duration(days: 1))) ||
                     element.expiryDate
                         .isAtSameMomentAs(today.add(Duration(days: 1)))) &&
-                element.expiryDate.isBefore(today.add(Duration(days: 3)));
+                element.expiryDate
+                    .isBefore(today.add(Duration(days: 3, seconds: 1)));
           }
           return false;
         }),
@@ -103,7 +104,8 @@ class _ItemPageState extends State<ItemPage> {
         index: list.indexWhere((element) {
           if (element is Food) {
             return element.expiryDate.isAfter(today.add(Duration(days: 3))) &&
-                element.expiryDate.isBefore(today.add(Duration(days: 7)));
+                element.expiryDate
+                    .isBefore(today.add(Duration(days: 7, seconds: 1)));
           }
           return false;
         }),
