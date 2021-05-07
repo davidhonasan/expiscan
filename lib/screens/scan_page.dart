@@ -253,10 +253,8 @@ class _ScanPageState extends State<ScanPage> with WidgetsBindingObserver {
         //  Lots of regex
         if (!isExpiryDate(line.text!)) continue;
         // print('==== LINE ====');
-        // print(line.text);
         // if (scannerBox.overlaps(line.boundingBox!)) {
         if (scannerBox.overlaps(line.boundingBox!)) {
-          // print(visionText.text);
           if (_cameraController.value.isStreamingImages)
             await _cameraController.stopImageStream();
           // .then((_) => _showExpiryDateConfirmationModal());
@@ -268,14 +266,13 @@ class _ScanPageState extends State<ScanPage> with WidgetsBindingObserver {
           _expiryRawValueList.add(_expiryDateValue);
           _expiryDateTime = parseDate(_expiryDateValue);
           _expiryList.add(_expiryDateTime);
-
           setState(() {
             _scannerStatus = 'Found';
             _isScanningExpiryDate = false;
           });
-
-          // return;
-        } else if (block.boundingBox!.overlaps(scannerBox)) {
+          continue;
+        } else if (_isScanningExpiryDate &&
+            block.boundingBox!.overlaps(scannerBox)) {
           setState(() {
             _scannerStatus = 'Move closer to the Expiry Date';
           });
@@ -452,9 +449,6 @@ class _ScanPageState extends State<ScanPage> with WidgetsBindingObserver {
                                 icon: Icon(Icons.replay_rounded,
                                     color: Theme.of(context).accentColor),
                                 onPressed: () {
-                                  _expiryList = [];
-                                  _expiryRawValueList = [];
-                                  _isProductBestBefore = false;
                                   Navigator.of(context).pop();
                                 },
                               ),
@@ -513,6 +507,10 @@ class _ScanPageState extends State<ScanPage> with WidgetsBindingObserver {
               return SimpleModalError();
             }
           });
+
+      _expiryList = [];
+      _expiryRawValueList = [];
+      _isProductBestBefore = false;
 
       if (!_continue) _startStreamToTextRecognizer();
       if (_continue) {
