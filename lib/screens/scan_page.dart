@@ -402,7 +402,7 @@ class _ScanPageState extends State<ScanPage> with WidgetsBindingObserver {
                               contentPadding:
                                   EdgeInsets.fromLTRB(25, 15, 25, 0),
                               isThreeLine: true,
-                              title: Text(_product.productName!),
+                              title: Text(_product.productName ?? 'No name'),
                               subtitle: Text(_product.brands ??
                                   '' + '\nBarcode: ' + _product.barcode!),
                             )
@@ -518,7 +518,7 @@ class _ScanPageState extends State<ScanPage> with WidgetsBindingObserver {
       if (_continue) {
         Food entry = Food(
             name: (_product.brands == null ? '' : '${_product.brands}: ') +
-                _product.productName!,
+                (_product.productName ?? 'No Name'),
             picturePath:
                 _product.imageFrontUrl == null ? '' : _product.imageFrontUrl,
             expiryDate: _radioGroup,
