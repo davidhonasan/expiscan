@@ -218,7 +218,7 @@ class _SpeedDialFABState extends State<SpeedDialFAB>
           end: Theme.of(context).primaryColor)
       .animate(_controller);
   late final _tweenTransparenttoOpaque =
-      ColorTween(begin: null, end: Colors.black.withOpacity(0.7))
+      ColorTween(begin: Colors.transparent, end: Colors.black.withOpacity(0.7))
           .animate(_controller);
   late final Animation<Offset> _offsetAnimation = Tween<Offset>(
     begin: const Offset(0, 1),
@@ -257,9 +257,13 @@ class _SpeedDialFABState extends State<SpeedDialFAB>
       children: [
         Visibility(
           child: GestureDetector(
-              child: AnimatedModalBarrier(color: _tweenTransparenttoOpaque),
-              behavior: HitTestBehavior.translucent,
-              onDoubleTap: _toggle),
+            child: AnimatedModalBarrier(color: _tweenTransparenttoOpaque),
+            behavior: HitTestBehavior.translucent,
+            onTapDown: (_) {
+              _toggle();
+            },
+            onDoubleTap: _toggle,
+          ),
           maintainSize: true,
           maintainAnimation: true,
           maintainState: true,
