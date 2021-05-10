@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:expiscan/constants/constants.dart';
 import 'package:expiscan/widgets.dart';
@@ -15,6 +16,7 @@ import 'package:flutter/services.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  Firebase.initializeApp();
   initTz();
   initNotificationService();
   runApp(MainApp());

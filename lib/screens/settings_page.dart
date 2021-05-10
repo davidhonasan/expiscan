@@ -63,7 +63,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 //   trailing: ElevatedButton(
                 //     child: Icon(Icons.ring_volume),
                 //     onPressed: () {
-                //       notificationService.getAllNotifications();
+                //       FirebaseCrashlytics.instance.crash();
                 //     },
                 //   ),
                 // ),
