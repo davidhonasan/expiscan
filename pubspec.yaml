@@ -1,43 +1,52 @@
---- 
-dependencies: 
-  cached_network_image: ^3.0.0
-  camera: ~
-  cupertino_icons: ^1.0.0
-  firebase_core: ^1.1.0
-  firebase_crashlytics: ^2.0.2
-  firebase_ml_vision: ^0.12.0+1
-  flutter: 
+name: expiscan
+description: Expiscan.
+
+publish_to: 'none'
+
+version: 1.0.2+5
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
     sdk: flutter
-  flutter_local_notifications: ^5.0.0+2
-  flutter_native_splash: ^1.1.8+4
-  flutter_native_timezone: ^1.0.10
-  image_picker: ^0.7.4
+
   intl: ^0.17.0
-  openfoodfacts: ^1.1.0-beta
+  camera: ~
+  sqflite: ~
+  image_picker: ^0.7.4
   path: ~
   path_provider: ~
+  cupertino_icons: ^1.0.0
+  firebase_ml_vision: ^0.12.0+1
+  firebase_core: ^1.1.0
+  flutter_local_notifications: ^5.0.0+2
+  flutter_native_timezone: ^1.0.10
+  openfoodfacts: ^1.1.0-beta
+  cached_network_image: ^3.0.0
   shared_preferences: ^2.0.5
-  sqflite: ~
-description: Expiscan.
-dev_dependencies: 
-  flutter_launcher_icons: ^0.9.0
-  flutter_test: 
+  flutter_native_splash: ^1.1.8+4
+  firebase_crashlytics: ^2.0.2
+
+dev_dependencies:
+  flutter_test:
     sdk: flutter
-environment: 
-  sdk: ">=2.12.0 <3.0.0"
-flutter: 
-  uses-material-design: true
-flutter_icons: 
-  adaptive_icon_background: "#76c479"
-  adaptive_icon_foreground: assets/icon-foreground.png
+  flutter_launcher_icons: ^0.9.0
+
+
+flutter_icons:
   android: true
-  image_path: assets/icon.png
   ios: false
-flutter_native_splash: 
+  image_path: "assets/icon.png"
+  adaptive_icon_foreground: "assets/icon-foreground.png"
+  adaptive_icon_background: "#76c479"
+
+flutter_native_splash:
   color: "#76c479"
   image: assets/splash-icon.png
   ios: false
   web: false
-name: expiscan
-publish_to: none
-version: 1.0.2+5
+
+flutter:
+  uses-material-design: true
